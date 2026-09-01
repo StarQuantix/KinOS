@@ -1,0 +1,105 @@
+schema: spec-driven
+
+context: |
+  Language: en
+  All artifacts must be written in en.
+  Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+
+  Project: KinOS
+  Mission: Help one family coordinate everyday life in one calm, trustworthy,
+  private place.
+  Primary users: Invited members of a single family or household. Exact roles,
+  permissions, and invitation rules are not decided yet.
+  Current stage: Foundation and discovery. There is no production application,
+  selected technology stack, or committed architecture yet.
+
+  Opportunity areas (not yet committed scope):
+  - shared and personal to-do items
+  - recipes and household meal knowledge
+  - personal or household finance coordination
+  - recurring home tasks and chores
+  - reminders such as taking out trash
+
+  Product principles:
+  - Family-first simplicity: common actions must be understandable without training.
+  - Private by default: collect the minimum data needed and never place secrets or
+    real sensitive family or financial records in specs, fixtures, logs, or examples.
+  - Explicit sharing: members must be able to understand what is private, shared,
+    assigned, or visible to others.
+  - Inclusive access: account for different ages, abilities, devices, and levels of
+    technical confidence when specifying behavior.
+  - Calm coordination: prefer clear ownership and useful reminders over noisy or
+    punitive engagement mechanics.
+  - Incremental delivery: validate the smallest coherent family workflow before
+    combining opportunity areas into a broad platform.
+
+  Engineering baseline:
+  - Test at the lowest effective level and at important boundaries: unit tests for
+    isolated logic, integration tests for persistence/network/process/provider
+    boundaries, end-to-end tests for critical family workflows, and targeted
+    security tests for trust boundaries.
+  - Every stack-selection change must define one repeatable local and CI quality
+    command set covering formatting, static analysis or linting, applicable type
+    checks, tests, build validation, and security checks.
+  - Treat DRY as single ownership of knowledge that must change together. Do not
+    create abstractions merely because code looks similar.
+  - Keep dependencies necessary, version-constrained, license-compatible, and
+    reviewable for known vulnerabilities.
+  - Keep documentation, OpenSpec artifacts, and verification evidence aligned with
+    behavior. State which checks ran and disclose checks that did not run.
+  - CI must fail visibly when a required gate fails or is skipped unexpectedly.
+
+  AI integration baseline:
+  - Approved future provider options are DeepSeek API, Codex CLI, and Kimi CLI.
+    No provider is implemented, configured, or selected as a default yet.
+  - Product workflows must use the smallest provider-neutral capability contract;
+    provider-specific behavior stays in an adapter and is capability-detected.
+  - Keep credentials out of code, prompts, output, logs, fixtures, and commits.
+    Invoke CLI tools without shell interpolation of untrusted content.
+  - Minimize family data sent to a provider, make the provider boundary visible,
+    and apply explicit authorization, consent, retention, timeout, cancellation,
+    output-validation, and failure behavior defined by future feature specs.
+
+  Product questions intentionally left for future OpenSpec exploration and changes:
+  - Which family workflow should be the first usable vertical slice?
+  - Which client platforms and interaction modes matter first?
+  - What member roles, permissions, age considerations, and recovery flows are needed?
+  - Where will family data be stored, encrypted, backed up, exported, and deleted?
+  - Does finance coordination mean simple tracking, budgeting, account aggregation,
+    or something else?
+  - Which reminder channels and external integrations are genuinely valuable?
+
+  Authority: Accepted requirements in openspec/specs define current product behavior.
+  Active changes in openspec/changes define proposed behavior and implementation work.
+  Opportunity areas and open questions above provide discovery context only; they do
+  not authorize implementation.
+
+rules:
+  proposal:
+    - Keep proposals concise and identify explicit non-goals or boundaries.
+    - State user value and note privacy, sharing, or safety impact when applicable.
+    - Do not select implementation technology unless the change requires that decision.
+    - Identify the required unit, integration, end-to-end, and security verification by risk.
+  specs:
+    - Describe observable behavior and testable scenarios, not internal implementation.
+    - For family data, specify visibility, authorization, failure, and deletion behavior when relevant.
+    - Use synthetic examples; never include real family, credential, or financial data.
+  design:
+    - Record consequential decisions, alternatives considered, and privacy/security trade-offs.
+    - Prefer the smallest architecture that satisfies the approved requirements.
+    - Justify new dependencies and define trust boundaries for external APIs, local processes, and family data.
+  tasks:
+    - Keep tasks bounded, ordered, and independently verifiable.
+    - Include tests or other concrete verification in every implementation group.
+    - Include security verification for credentials, permissions, external input, or sensitive data when applicable.
+
+operations:
+  apply:
+    guidance:
+      - Do not implement outside the active change's approved scope.
+      - If implementation reveals a requirement or design mismatch, update and re-review the change before continuing.
+      - Preserve unrelated work and report verification evidence plus any exceptions.
+  archive:
+    guidance:
+      - Archive only after implementation is verified against the approved requirements.
+      - Confirm the resulting living specs describe the behavior that actually exists.

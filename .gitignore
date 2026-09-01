@@ -1,0 +1,31 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Dependencies and generated output
+node_modules/
+coverage/
+dist/
+build/
+.cache/
+.tmp/
+tmp/
+*.log
+
+# Local tools and runtime state
+.codegraph/
+.orca/
+.opencode/state/
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
