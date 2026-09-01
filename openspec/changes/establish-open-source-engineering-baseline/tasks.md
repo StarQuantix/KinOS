@@ -22,6 +22,6 @@
 
 ## 5. Public GitHub Repository
 
-- [ ] 5.1 Re-check that `StarQuantix/KinOS` does not exist, the authenticated GitHub account has organization repository-creation authority, and no conflicting `origin` exists; stop without mutation on any conflict and report the evidence.
+- [x] 5.1 Re-check that `StarQuantix/KinOS` does not exist, the authenticated GitHub account has organization repository-creation authority, and no conflicting `origin` exists; stop without mutation on any conflict and report the evidence.
 - [ ] 5.2 Create `StarQuantix/KinOS` as a public GitHub repository, set it as `origin`, and push the verified local `HEAD` to remote `main`; verify `origin` targets the canonical repository and GitHub reports public visibility with `main` as the default branch.
 - [ ] 5.3 Inspect the public repository after push; verify the README renders, GitHub detects the MIT license, governance CI starts or passes, and the public tree matches the reviewed commit.
